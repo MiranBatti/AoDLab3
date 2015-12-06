@@ -25,4 +25,4 @@ public class Reader {
 		return list;
 	}
 
-}
+} // end class
