@@ -1,10 +1,12 @@
-package se.hig.aod.lab3;
+package se.hig.aod.lab32;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;;
 
+import se.hig.aod.lab3.DuplicateItemException;
+import se.hig.aod.lab3.EmptyQueueException;
+import se.hig.aod.lab3.HeapPriorityQueue;
 
 public class HeapUnsortedTest {
 	public static void main(String[] args) throws DuplicateItemException, EmptyQueueException {
@@ -27,7 +29,7 @@ public class HeapUnsortedTest {
 		long t1 = System.currentTimeMillis();
 		
 		for (int i = 0; i < biggerL.size(); i++) {
-			pq.enqueue(biggerL.get(i));
+			pq.enqueue(biggerL.get(i)); 
 		}
 		
 		for (int i = 0; i < smallerL.size(); i++) {
@@ -39,11 +41,11 @@ public class HeapUnsortedTest {
 		}
 		
 		for (int i = 0; i < biggerL.size(); i++) {
-			System.out.println(pq.dequeue());
+			System.out.println(pq.dequeue()); 
 		}
 		
 		long exetime = System.currentTimeMillis() - t1;
 		
-		System.out.println(exetime);
+		System.out.println(exetime + "ms");
 	}
 }// end class

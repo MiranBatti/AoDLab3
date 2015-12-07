@@ -1,4 +1,4 @@
-package se.hig.aod.lab3;
+package se.hig.aod.lab32;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
