@@ -10,7 +10,7 @@ import se.hig.aod.lab3.EmptyQueueException;
 public class HeapUnsortedTest {
 	public static void main(String[] args) throws DuplicateItemException, EmptyQueueException {
 //		HeapPriorityQueue<Integer> pq = new HeapPriorityQueue<Integer>(640000);
-		MyHeapPriorityQueue<Integer> pq = new MyHeapPriorityQueue<Integer>(640000);
+		MyHeapPriorityQueue<Integer> pq = new MyHeapPriorityQueue<Integer>(6464000);
 		ArrayList<Integer> biggerL = null;
 		ArrayList<Integer> smallerL = null;
 		DataLoader r = new DataLoader();
