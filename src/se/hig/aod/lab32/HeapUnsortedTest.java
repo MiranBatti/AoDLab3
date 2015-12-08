@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 import se.hig.aod.lab3.DuplicateItemException;
 import se.hig.aod.lab3.EmptyQueueException;
-import se.hig.aod.lab3.HeapPriorityQueue;
 
 public class HeapUnsortedTest {
 	public static void main(String[] args) throws DuplicateItemException, EmptyQueueException {
-		HeapPriorityQueue<Integer> pq = new HeapPriorityQueue<Integer>(640000);
+//		HeapPriorityQueue<Integer> pq = new HeapPriorityQueue<Integer>(640000);
+		MyHeapPriorityQueue<Integer> pq = new MyHeapPriorityQueue<Integer>(640000);
 		ArrayList<Integer> biggerL = null;
 		ArrayList<Integer> smallerL = null;
-		Reader r = new Reader();
+		DataLoader r = new DataLoader();
 		
 		try {
 			biggerL = r.loadList("C:/Users/Miran/git/AoDLab3/src/resources/data_640000.txt", 640000);

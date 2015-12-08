@@ -13,7 +13,7 @@ public class BSTUnsortedTest {
 		BSTPriorityQueue<Integer> pq = new BSTPriorityQueue<Integer>();
 		ArrayList<Integer> biggerL = null;
 		ArrayList<Integer> smallerL = null;
-		Reader r = new Reader();
+		DataLoader r = new DataLoader();
 		
 		try {
 			biggerL = r.loadList("C:/Users/Miran/git/AoDLab3/src/resources/data_640000.txt", 640000);
