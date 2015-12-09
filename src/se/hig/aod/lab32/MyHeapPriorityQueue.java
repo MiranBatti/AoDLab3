@@ -2,8 +2,6 @@ package se.hig.aod.lab32;
 
 import java.lang.Comparable;
 
-import se.hig.aod.lab3.EmptyQueueException;
-
 /**
  * 
  * @author Miran Batti

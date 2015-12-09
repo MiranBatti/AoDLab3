@@ -6,6 +6,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Peter Jenke
+ * @author Miran Batti
+ * @author Fredrik Lindorf
+ *
+ * @version 2015-12-07
+ */
 public class DataLoader {
 
 	public DataLoader() {
