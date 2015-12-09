@@ -3,6 +3,8 @@ package se.hig.aod.lab32;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import se.hig.aod.lab3.BSTPriorityQueue;
 import se.hig.aod.lab3.DuplicateItemException;
@@ -23,12 +25,30 @@ public class BSTUnsortedTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+				
+		System.out.println("Enqueue: ");
+		
+		int amount = 10000;		
 		long t1 = System.currentTimeMillis();
 		
-		for (int i = 0; i < biggerL.size(); i++) {
+		List<Integer> a = biggerL.subList(0, amount);
+		
+		for (Integer integer : a) {
 			try {
-				pq.enqueue(biggerL.get(i)); 
+				pq.enqueue(integer);
 			} catch (DuplicateItemException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		long exetimeEnqueue = System.currentTimeMillis() - t1;
+		
+		System.out.println(exetimeEnqueue);
+		
+		for (Integer integer : a) {
+			try {
+				pq.dequeue();
+			} catch (EmptyQueueException e) {
 				e.printStackTrace();
 			}
 		}
@@ -43,24 +63,15 @@ public class BSTUnsortedTest {
 		
 		for (int i = 0; i < smallerL.size(); i++) {
 			try {
-				System.out.println(pq.dequeue());
+				pq.dequeue();
 			} catch (EmptyQueueException e) {
 				e.printStackTrace();
 			}
 		}
 		
-		for (int i = 0; i < biggerL.size(); i++) {
-			try {
-				System.out.println(pq.dequeue()); 
-			} catch (EmptyQueueException e) {
-				e.printStackTrace();
-			}
-		}
+		long exetime2 = System.currentTimeMillis() - t1;
 		
-		
-		long exetime = System.currentTimeMillis() - t1;
-		
-		System.out.println(exetime + "ms");
+		System.out.println(exetime2 + "ms");
 	}
 	
 }
