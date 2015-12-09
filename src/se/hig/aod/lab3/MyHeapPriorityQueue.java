@@ -1,8 +1,9 @@
-package se.hig.aod.lab32;
+package se.hig.aod.lab3;
 
 import java.lang.Comparable;
 
 /**
+ * Heap based implementation of a priority queue.
  * 
  * @author Miran Batti
  * @author Fredrik Lindorf
@@ -15,7 +16,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 
 	private T[] queue;
 	private int nbrOfElements, capacity;
-	private final static int STANDARD_CAPACITY = 1000;
+	private final static int STANDARD_CAPACITY = 10000;
 	
 	/**
 	 * Initialize priority queue with given maximum capacity.
@@ -23,7 +24,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 	 */
 	@SuppressWarnings("unchecked")
 	public MyHeapPriorityQueue(int capacity) {
-		queue = (T[]) new Comparable[capacity + 1];
+		queue = (T[]) new Comparable[capacity + 1]; // börjar på 1 istället för 0
 		nbrOfElements = 0;
 		this.capacity = capacity;
 	}
@@ -74,6 +75,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 	public void enqueue(T element) { // Arraybaserad: O(lg n+n)
 		if(nbrOfElements == queue.length - 1)
 			resizeArray(); // förstorar våran queue array.
+		
 		int current = size() + 1;
 		queue[current] = element;
 
@@ -97,7 +99,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 		
 		T tmp = getFront(); 
 		queue[1] = queue[nbrOfElements--];
-		trickleDown(1);
+		trickleDown(1); // fix the queue array
 		
 		return tmp;
 	}
@@ -144,7 +146,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 		@SuppressWarnings("unchecked")
 		T[] tmp = (T[]) new Comparable[queue.length * 2];
 		for (int i = 0; i < nbrOfElements; i++) {
-			tmp[i] = queue[i];
+			tmp[i+1] = queue[i+1];
 		}
 		
 		queue = tmp;

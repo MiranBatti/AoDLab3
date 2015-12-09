@@ -1,4 +1,4 @@
-package se.hig.aod.lab32;
+package se.hig.aod.lab3;
 
 /**
  * Exception class that signals if an operation that is not allowed has been

@@ -1,6 +1,6 @@
-package tests;
+package test;
 
-import se.hig.aod.lab32.MyHeapPriorityQueue;
+import se.hig.aod.lab3.MyHeapPriorityQueue;
 
 public class TestMyHeap {
 	public static void main(String[] args) {

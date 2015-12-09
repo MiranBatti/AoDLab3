@@ -2,22 +2,29 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import se.hig.aod.lab32.MyHeapPriorityQueue;
-import se.hig.aod.lab32.QueueEmptyException;
+import se.hig.aod.lab3.MyHeapPriorityQueue;
+import se.hig.aod.lab3.QueueEmptyException;
 
 public class PriorityQueueTest {
 
 	MyHeapPriorityQueue<Integer> pq;
 	int[] fixture = {2, 3, 1, 4, 5, 6, 7, 9, 8, 10};
+	ArrayList<Integer> listFixture;
 	
 	@Before
 	public void setUp() throws Exception {
 		pq = new MyHeapPriorityQueue<Integer>();
+		listFixture = new ArrayList<Integer>();
+		for (int i = 0; i < fixture.length; i++) {
+			listFixture.add(fixture[i]);
+		}
 	}
 
 	@After
@@ -37,7 +44,8 @@ public class PriorityQueueTest {
 	@Test
 	public void sizeIsNAndNotEmpty() {
 		for (int i = 0; i < fixture.length; i++) {
-			pq.enqueue(fixture[i]);
+//			pq.enqueue(fixture[i]);
+			pq.enqueue(listFixture.get(i));
 		}
 		assertFalse(pq.isEmpty());
 		assertEquals(10, pq.size());
@@ -46,7 +54,8 @@ public class PriorityQueueTest {
 	@Test
 	public void queueIsEmptyAfterDequeAllElements() {
 		for (int i = 0; i < fixture.length; i++) {
-			pq.enqueue(fixture[i]);
+//			pq.enqueue(fixture[i]);
+			pq.enqueue(listFixture.get(i));
 		}
 		for (int i = 0; i < fixture.length; i++) {
 			pq.dequeue();
@@ -57,7 +66,8 @@ public class PriorityQueueTest {
 	@Test
 	public void testQueuePriorityOrder() {
 		for (int i = 0; i < fixture.length; i++) {
-			pq.enqueue(fixture[i]);
+//			pq.enqueue(fixture[i]);
+			pq.enqueue(listFixture.get(i));
 		}
 		
 		for (int i = 0; i < fixture.length; i++) {
@@ -81,10 +91,37 @@ public class PriorityQueueTest {
 		assertTrue(pq.isEmpty());
 		
 		for (int i = 0; i < fixture.length; i++) {
-			pq.enqueue(fixture[i]);
+//			pq.enqueue(fixture[i]);
+			pq.enqueue(listFixture.get(i));
 		}
 		
 		pq.clear();
 		assertTrue(pq.isEmpty());
+	}
+	
+	@Test
+	public void sortedListTest() {
+		Collections.sort(listFixture);
+		
+		for (int i = 0; i < fixture.length; i++) {
+			pq.enqueue(listFixture.get(i));
+		}
+		
+		for (int i = 0; i < fixture.length; i++) {
+			assertEquals(i+1, pq.dequeue().intValue());			
+		}
+	}
+	
+	@Test
+	public void reversedSortedListTest() {
+		Collections.sort(listFixture, Collections.reverseOrder());
+		
+		for (int i = 0; i < fixture.length; i++) {
+			pq.enqueue(listFixture.get(i));
+		}
+		
+		for (int i = 0; i < fixture.length; i++) {
+			assertEquals(i+1, pq.dequeue().intValue());			
+		}
 	}
 }

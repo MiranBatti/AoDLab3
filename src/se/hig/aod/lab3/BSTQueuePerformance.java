@@ -1,4 +1,4 @@
-package se.hig.aod.lab32;
+package se.hig.aod.lab3;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,6 +10,14 @@ import se.hig.aod.lab3.BSTPriorityQueue;
 import se.hig.aod.lab3.DuplicateItemException;
 import se.hig.aod.lab3.EmptyQueueException;
 
+/**
+ * This class measures the speed of inserting and removing elements from a BST based priority queue.
+ * 
+ * @author Miran Batti
+ * @author Fredrik Lindorf
+ * 
+ * @version 2015-12-08
+ */
 public class BSTQueuePerformance {
 	public static void main(String[] args) {
 		BSTPriorityQueue<Integer> pq = new BSTPriorityQueue<Integer>();

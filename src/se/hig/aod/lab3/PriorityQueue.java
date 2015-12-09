@@ -1,4 +1,4 @@
-package se.hig.aod.lab32;
+package se.hig.aod.lab3;
 import java.lang.Comparable;
 
 /**
