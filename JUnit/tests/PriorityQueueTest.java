@@ -15,7 +15,7 @@ import se.hig.aod.lab3.QueueEmptyException;
 public class PriorityQueueTest {
 
 	MyHeapPriorityQueue<Integer> pq;
-	int[] fixture = {2, 3, 1, 4, 5, 6, 7, 9, 8, 10};
+	int[] fixture = {2, 5, 1, 4, 3, 6, 7, 9, 8, 10};
 	ArrayList<Integer> listFixture;
 	
 	@Before
@@ -61,6 +61,7 @@ public class PriorityQueueTest {
 			pq.dequeue();
 		}
 		assertTrue(pq.isEmpty());
+		assertEquals(0, pq.size());
 	}
 	
 	@Test
@@ -89,6 +90,7 @@ public class PriorityQueueTest {
 	public void queueIsEmptyAfterClear() {
 		pq.clear();
 		assertTrue(pq.isEmpty());
+		assertEquals(0, pq.size());
 		
 		for (int i = 0; i < fixture.length; i++) {
 //			pq.enqueue(fixture[i]);
@@ -97,6 +99,7 @@ public class PriorityQueueTest {
 		
 		pq.clear();
 		assertTrue(pq.isEmpty());
+		assertEquals(0, pq.size());
 	}
 	
 	@Test
@@ -123,5 +126,10 @@ public class PriorityQueueTest {
 		for (int i = 0; i < fixture.length; i++) {
 			assertEquals(i+1, pq.dequeue().intValue());			
 		}
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void addNull() {
+		pq.enqueue(null);
 	}
 }

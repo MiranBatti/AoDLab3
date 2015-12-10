@@ -75,14 +75,15 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 	public void enqueue(T element) { // Arraybaserad: O(lg n+n)
 		if(nbrOfElements == queue.length - 1)
 			resizeArray(); // förstorar våran queue array.
+		if(element == null)
+			throw new NullPointerException();
 		
-		int current = size() + 1;
-		queue[current] = element;
+		int currentIndex = size() + 1;
+		queue[currentIndex] = element;
 
 		nbrOfElements++;
-		int index = nbrOfElements; 
 
-		for(int i  = index; i >= 2 && element.compareTo(queue[getParent(i)]) < 0; i /= 2) 
+		for(int i  = nbrOfElements; i >= 2 && element.compareTo(queue[getParent(i)]) < 0; i /= 2) // skickar upp det minsta elementet till först i arrayen.
 			swap(i, getParent(i));
 	}
 
@@ -98,7 +99,10 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 			throw new QueueEmptyException("The Queue is empty.");
 		
 		T tmp = getFront(); 
-		queue[1] = queue[nbrOfElements--];
+//		int last = nbrOfElements--;
+		queue[1] = queue[nbrOfElements];
+		queue[nbrOfElements] = null;
+		nbrOfElements--;
 		trickleDown(1); // fix the queue array
 		
 		return tmp;
@@ -162,7 +166,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 	}
 	
 	// method for fixing the queue when an element is dequeued
-	private void trickleDown(int parentIndex) {
+	private void trickleDown(int parentIndex) { // kod lånat från http://stackoverflow.com/questions/714796/priorityqueue-heap-update, ändringar har gjorts för att anpassa programmet.
 		int left = 2 * parentIndex;
 		int right = (2 * parentIndex) + 1;
 		int min = parentIndex;
@@ -174,7 +178,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 
 		if (min != parentIndex) {
 			swap(parentIndex, min);
-			trickleDown(min);
+			this.trickleDown(min);
 		}
 	}	
 	

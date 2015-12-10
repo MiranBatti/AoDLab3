@@ -25,11 +25,11 @@ public class HeapQueuePerformance {
 		MyHeapPriorityQueue<Integer> pq = new MyHeapPriorityQueue<Integer>();
 		ArrayList<Integer> biggerL = null;
 		ArrayList<Integer> smallerL = null;
-		DataLoader r = new DataLoader();
+		DataLoader load = new DataLoader();
 		
 		try {
-			biggerL = r.loadList("C:/Users/Miran/git/AoDLab3/src/resources/data_640000.txt", 640000);
-			smallerL = r.loadList("C:/Users/Miran/git/AoDLab3/src/resources/data_6400.txt", 6400);
+			biggerL = load.loadList("C:/Users/Miran/git/AoDLab3/src/resources/data_640000.txt", 640000);
+			smallerL = load.loadList("C:/Users/Miran/git/AoDLab3/src/resources/data_6400.txt", 6400);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -42,11 +42,11 @@ public class HeapQueuePerformance {
 		
 		//Enqueue
 		int amount = 640000;	// behöver handläggning, ändra värdet för större data.
-		List<Integer> a = biggerL.subList(0, amount);
+		List<Integer> data = biggerL.subList(0, amount);
 		
 		long beginEnqueueTimer = System.currentTimeMillis();
 			
-		for (Integer integer : a) {
+		for (Integer integer : data) {
 			pq.enqueue(integer); // 2. Lagra data från 640000.txt i kön.
 		}
 		
@@ -62,7 +62,7 @@ public class HeapQueuePerformance {
 		// Dequeue
 		long beginDequeueTimer = System.currentTimeMillis();
 		
-		for (@SuppressWarnings("unused") Integer integer : a) {
+		for (@SuppressWarnings("unused") Integer integer : data) {
 			pq.dequeue(); // 2. Ta bort data från 640000.txt
 		}	
 		
