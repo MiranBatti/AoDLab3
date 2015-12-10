@@ -34,7 +34,7 @@ public class BSTQueuePerformance {
 			e.printStackTrace();
 		}
 				
-		Collections.sort(biggerL);
+//		Collections.sort(biggerL);
 //		Collections.sort(biggerL, Collections.reverseOrder());
 		
 		System.out.println("Enqueue: ");
