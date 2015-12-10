@@ -41,7 +41,7 @@ public class HeapQueuePerformance {
 		System.out.println("Enqueue: ");
 		
 		//Enqueue
-		int amount = 640000;	// behöver handläggning, ändra värdet för större data.
+		int amount = 640000;	// behöver handläggning, ändra värdet för större/mindre data.
 		List<Integer> data = biggerL.subList(0, amount);
 		
 		long beginEnqueueTimer = System.currentTimeMillis();

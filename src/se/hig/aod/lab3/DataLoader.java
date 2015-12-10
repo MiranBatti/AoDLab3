@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * Kod från laborationsinstruktionen.
  * 
  * @author Peter Jenke
  * @author Miran Batti

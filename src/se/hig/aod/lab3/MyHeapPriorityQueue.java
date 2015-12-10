@@ -83,6 +83,7 @@ public class MyHeapPriorityQueue<T extends Comparable<? super T>> implements Pri
 
 		nbrOfElements++;
 
+		// kod lånat och ändrat från http://www.cs.dartmouth.edu/~gevorg/cs10/notes/14/HeapMinPriorityQueue.java
 		for(int i  = nbrOfElements; i >= 2 && element.compareTo(queue[getParent(i)]) < 0; i /= 2) // skickar upp det minsta elementet till först i arrayen.
 			swap(i, getParent(i));
 	}
